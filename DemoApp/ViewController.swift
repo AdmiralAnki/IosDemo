@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var rightScoreLabel: UILabel!
     
+    var leftScore=0
+    var rightScore=0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,7 +42,24 @@ class ViewController: UIViewController {
         leftImageView.image = UIImage(named: "card\(leftNum)")
         rightImage.image = UIImage(named: "card\(rightNum)")
 
-        
+        if leftNum>rightNum{
+            //player gets a point
+            leftScore+=1
+            leftScoreLabel.text="\(leftScore)"
+        }
+        else if leftNum<rightNum{
+            //comp gets a point
+            rightScore+=1
+            rightScoreLabel.text=String(rightScore)
+        }
+        else{
+            //tie
+            rightScore+=1
+            leftScore+=1
+            leftScoreLabel.text=String(leftScore)
+            rightScoreLabel.text=String(rightScore)
+            
+        }
         
     }
     
